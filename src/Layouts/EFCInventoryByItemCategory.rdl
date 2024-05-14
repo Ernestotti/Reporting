@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="TitleLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TitleLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TitleLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AvailabilityLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AvailabilityLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AvailabilityLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InventoryLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>InventoryLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>InventoryLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemCategoryCodeLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemCategoryCodeLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemCategoryCodeLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemNoLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemNoLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemNoLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemDescriptionLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemDescriptionLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemDescriptionLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Item_Category_CodeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Item_Category_CodeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Item_Category_CodeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DescriptionCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DescriptionCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DescriptionCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InventoryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>InventoryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>InventoryCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Item_Category_Code">
+          <DataField>Item_Category_Code</DataField>
+        </Field>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Inventory">
+          <DataField>Inventory</DataField>
+        </Field>
+        <Field Name="InventoryFormat">
+          <DataField>InventoryFormat</DataField>
+        </Field>
+        <Field Name="Availability">
+          <DataField>Availability</DataField>
+        </Field>
+        <Field Name="AvailabilityFormat">
+          <DataField>AvailabilityFormat</DataField>
+        </Field>
+        <Field Name="Description_ItemCategory">
+          <DataField>Description_ItemCategory</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
